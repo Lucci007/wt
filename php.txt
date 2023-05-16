@@ -1,0 +1,225 @@
+1
+<?php
+Session_start();
+if(isset($_SESSION['pcount'])){
+$_SESSION[‘pcount]+=1;
+}else{
+$_SESSION['pcount']=1;
+}
+Echo“Youhavevisitedthispage“.$_SESSION[‘pcount].”Time(s).”;
+?
+
+2
+Item.xml
+<items>
+<itemtype=”Electronics”>
+<name>Television</name>
+<rate>500</rate>
+<quantity>10</quantity>
+</item>
+<itemtype=”Clothing”>
+<name>Shirt</name>
+<rate>50</rate>
+<quantity>20</quantity>
+</item>
+<itemtype=”Grocery”>
+<name>Rice</name>
+<rate>40</rate>
+<quantity>30</quantity>
+</item>
+<itemtype=”Books”>
+<name>HarryPotterandthePhilosopher’sStone</name>
+<rate>20</rate>
+<quantity>50</quantity>
+</item>
+<itemtype=”Sports”>
+<name>Football</name>
+<rate>100</rate>
+<quantity>5</quantity>
+</item>
+</items>
+
+
+3
+
+
+<?xml version='1.0'?>
+<BookInfo>
+    <book>
+        <bookno>1</bookno>
+        <bookname>JAVA</bookname>
+        <authorname> Balguru Swami</authorname>
+        <price>250</price>
+        <year>2006</year>
+    </book>
+    <book>
+        <bookno>2</bookno>
+        <bookname>C</bookname>
+        <authorname> Denis Ritchie</authorname>
+        <price>500</price>
+        <year>1971</year>
+    </book>
+</BookInfo>
+
+
+////save as set_b1.php////
+
+<?php
+$xml = simplexml_load_file("bookstore.xml");
+foreach($xml->children() as $b)
+{
+    echo $b->bookno;
+    echo $b->bookname;
+    echo $b->authorname;
+    echo $b->price;
+    echo $b->year;
+}
+?>
+
+
+4
+
+<?php
+//LoadtheXMLfile
+$xml=newDOMDocument();
+$xml->load(‘Movie.xml’);
+//Getallthemovienodes
+$movies=$xml->getElementsByTagName(‘MovieInfo’);
+//Loopthrougheachmovienodeandprintthemovietitleandactorname
+Foreach($moviesas$movie){
+Echo“MovieTitle:“.$movie->getElementsByTagName(‘MovieTitle’)[0]->textContent.“,“;
+Echo“ActorName:“.$movie->getElementsByTagName(‘ActorName’)[0]->textContent.“<br>”;
+}
+?
+XMLfile
+<?xmlversion=”1.0”?>
+<MovieList>
+<MovieInfo>
+<MovieNo>1</MovieNo>
+<MovieTitle>TheShawshankRedemption</MovieTitle>
+<ActorName>TimRobbins</ActorName>
+<ReleaseYear>1994</ReleaseYear>
+</MovieInfo>
+<MovieInfo>
+<MovieNo>2</MovieNo>
+<MovieTitle>TheGodfather</MovieTitle>
+<ActorName>MarlonBrando</ActorName>
+<ReleaseYear>1972</ReleaseYear>
+</MovieInfo>
+<MovieInfo>
+<MovieNo>3</MovieNo>
+<MovieTitle>TheDarkKnight</MovieTitle>
+<ActorName>ChristianBale</ActorName>
+<ReleaseYear>2008</ReleaseYear>
+</MovieInfo>
+<MovieInfo>
+<MovieNo>4</MovieNo>
+<MovieTitle>TheGodfather:PartII</MovieTitle>
+<ActorName>AlPacino</ActorName>
+<ReleaseYear>1974</ReleaseYear>
+</MovieInfo>
+<MovieInfo>
+<MovieNo>5</MovieNo>
+<MovieTitle>12AngryMen</MovieTitle>
+<ActorName>HenryFonda</ActorName>
+<ReleaseYear>1957</ReleaseYear>
+</MovieInfo>
+</MovieList
+
+5
+
+
+<html>
+<head>
+  <title>Addition of Two Numbers</title>
+  <script>
+    function calculateSum() {
+      
+      alert('Exams are near, have you started preparing for?');
+      
+      var firstNumber = prompt('Enter the first number:');
+      var secondNumber = prompt('Enter the second number:');
+      var num1 = Number(firstNumber);
+      var num2 = Number(secondNumber);
+      if (!isNaN(num1) && !isNaN(num2)) {
+        var sum = num1 + num2;
+        prompt('The addition of ' + num1 + ' and ' + num2 + ' is: ' + sum);
+      } else {
+        alert('Invalid input. Please enter valid numbers.');
+      }
+    }
+  </script>
+</head>
+<body>
+  <button onclick="calculateSum()">Calculate Sum</button>
+</body>
+</html>
+
+
+6
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Membership Form</title>
+  <script type="text/javascript">
+    function validateForm() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+      if (username=="") {
+        alert("Username must be at least 6 characters long");
+        return false;
+      }
+      if (password=="") {
+        alert("Password must be at least 8 characters long");
+        return false;
+      }
+      return true;
+    }
+ </script>
+</head>
+<body>
+  <form onsubmit="return validateForm()">
+    <label for="username">Username:</label>
+    <input type="text" id="username" />
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" />
+
+    <input type="submit" value="Submit" />
+  </form>
+</body>
+</html>
+
+
+7
+
+////save as Book.xml////
+
+<?xml version="1.0" encoding="utf-8"?>
+<ABCBOOK>
+<Technical>
+<BOOK>
+<Book_PubYear>ABC </Book_PubYear>
+<Book_Title>pqr </Book_Title>
+<Book_Author>400 </Book_Author>
+</BOOK>
+</Technical>
+<Cooking>
+<BOOK>
+<Book_PubYear>ABC </Book_PubYear>
+<Book_Title>pqr </Book_Title>
+<Book_Author>400 </Book_Author>
+</BOOK>
+</Cooking>
+<Yoga>
+<BOOK>
+<Book_PubYear>ABC </Book_PubYear>
+<Book_Title>pqr </Book_Title>
+<Book_Author>400 </Book_Author>
+</BOOK>
+</Yoga>
+</ABCBOOK>
+
+
+
+
